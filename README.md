@@ -51,7 +51,7 @@ var m = MovementFactory.CreateMovement(0f, 100f, 3f, new LinearInterpolator());
 Movements can be sequenced: 
 
 ```
-var i = j.Then(j);
+var i = j.Then(k);
 ```
 
 Movements can be repeated: 
