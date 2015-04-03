@@ -37,15 +37,26 @@
     <!-- A reference to the entire .NET Framework is automatically included -->
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MinTween.cs" />
-    <Compile Include="MaxTween.cs" />
-    <Compile Include="SequenceTween.cs" />
-    <Compile Include="AverageTween.cs" />
-    <Compile Include="CustomTween.cs" />
-    <Compile Include="ITween.cs" />
-    <Compile Include="LinearTween.cs" />
+    <Compile Include="IMovement.cs" />
+    <Compile Include="Interpolators\SmoothInterpolator.cs" />
+    <Compile Include="BlendMovement.cs" />
+    <Compile Include="StretchMovement.cs" />
+    <Compile Include="ReverseMovement.cs" />
+    <Compile Include="WaitMovement.cs" />
+    <Compile Include="InterpolatedMovement.cs" />
+    <Compile Include="Interpolators\OvershootInterpolator.cs" />
+    <Compile Include="Interpolators\MinInterpolator.cs" />
+    <Compile Include="Interpolators\MaxInterpolator.cs" />
+    <Compile Include="Interpolators\SequenceInterpolator.cs" />
+    <Compile Include="Interpolators\AverageInterpolator.cs" />
+    <Compile Include="Interpolators\CustomInterpolator.cs" />
+    <Compile Include="Interpolators\IInterpolator.cs" />
+    <Compile Include="Interpolators\LinearInterpolator.cs" />
+    <Compile Include="MovementFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ReverseTween.cs" />
+    <Compile Include="Interpolators\ReverseInterpolator.cs" />
+    <Compile Include="RepeatMovement.cs" />
+    <Compile Include="ThenMovement.cs" />
     <Compile Include="TweenHelpers.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />

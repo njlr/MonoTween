@@ -3,7 +3,7 @@ using System;
 
 namespace MonoTween
 {
-    sealed class Movement
+    sealed class InterpolatedMovement : IMovement
     {
         private readonly float start;
         private readonly float end;
@@ -32,7 +32,7 @@ namespace MonoTween
             get { return interpolator; }
         }
 
-        public Movement(float start, float end, float duration, IInterpolator interpolator)
+        public InterpolatedMovement(float start, float end, float duration, IInterpolator interpolator)
             : base()
         {
             if (duration < 0f)
@@ -67,6 +67,35 @@ namespace MonoTween
             {
                 return start + (end - start) * interpolator.Evaluate(t / duration);
             }
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (obj == null || !(obj is InterpolatedMovement))
+            {
+                return false;
+            }
+            else
+            {
+                var other = (InterpolatedMovement)obj;
+
+                return ((start == other.start) && (end == other.end) && 
+                    (duration == other.duration) && (interpolator.Equals(other.interpolator)));
+            }
+        }
+
+        public override int GetHashCode()
+        {
+            return 61 + 
+                3 ^ start.GetHashCode() +
+                23 ^ end.GetHashCode() + 
+                7 ^ duration.GetHashCode() + 
+                11 ^ interpolator.GetHashCode();
+        }
+
+        public override string ToString()
+        {
+            return "InterpolatedMovement[" + start + ", " + end + ", " + duration + ", " + interpolator + "]";
         }
     }
 }
